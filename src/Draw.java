@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -30,70 +31,40 @@ public class Draw extends Application {
 
         Scene scene = new Scene(root, 500, 500, Color.BLACK);
 
-        this.diagonal = new Line(0, 0, 266, 266);
-        diagonal.setStroke(Color.rgb(60, 170, 140));
-        diagonal.setStrokeWidth(2);
+        final int padding = 10;
 
-        this.tt = new TranslateTransition(Duration.millis(2000));
+        for (int i = 1; i < 11; i++){
+            Rectangle rect = new Rectangle(
+                10*i, 10*i,
+                (scene.getWidth() / i) - padding,
+                (scene.getHeight() / i) - padding
+            );
 
-        this.tt.setInterpolator(Interpolator.EASE_BOTH);
-        this.tt = setParams(
-                this.tt,
-                this.diagonal.getEndX(),
-                this.diagonal.getEndY(),
-                this.diagonal.getStartX(),
-                this.diagonal.getStartY(),
-                Timeline.INDEFINITE,
-                Duration.ONE,
-                true);
+            System.out.println(rect.getWidth() + "|" + rect.getHeight());
 
-        tt.setNode((Node) diagonal);
-        root.getChildren().add(diagonal);
+            rect.setStrokeWidth(1);
+            rect.setStroke(Color.WHITE);
+            rect.setFill(Color.TRANSPARENT);
 
-        tt.play();
+            TranslateTransition tt = new TranslateTransition(
+                Duration.millis(1000),
+                rect
+            );
 
+            tt.setAutoReverse(true);
+            tt.setCycleCount(4);
+            tt.setFromX(rect.getX());
+            tt.setFromY(rect.getY());
+            tt.setToX(scene.getWidth() - rect.getX());
+            tt.setToY(scene.getHeight() - rect.getY());
+            // tt.play();
 
-        this.horizontal = new Line(0, 50, 512, 50);
-        horizontal.setStroke(Color.rgb(255, 9, 43));
-        horizontal.setStrokeWidth(2);
-
-        this.htt = new TranslateTransition(Duration.millis(1000));
-        htt.setNode((Node) horizontal);
-
-        htt = setParams(htt, 250, 50, 512, 50, Timeline.INDEFINITE, Duration.ONE, true);
-
-        root.getChildren().add(horizontal);
-
-        htt.play();
-
-        this.vertical = new Line(50, 250, 50, 500);
-        vertical.setStroke(Color.rgb(30, 210, 76));
-        vertical.setStrokeWidth(2);
+            root.getChildren().add(rect);  
+        
+        }
 
         stage.setScene(scene);
-        stage.setTitle("javafx draw");
         stage.show();
-
-    }
-
-    private TranslateTransition setParams(
-            TranslateTransition tt,
-            double fromX,
-            double fromY,
-            double toX,
-            double toY,
-            int cycleCount,
-            Duration cycleDuration,
-            boolean isAutoReverse) {
-
-        tt.setFromX(fromX);
-        tt.setFromY(fromY);
-        tt.setToX(toX);
-        tt.setToY(toY);
-        tt.setCycleCount(cycleCount);
-        tt.setAutoReverse(isAutoReverse);
-
-        return tt;
     }
 
     public static void main(String[] args) {

@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
-public class App extends Application {
+public class Lanes extends Application {
 
     Scene scene;
     Collection<Node> rootBase;

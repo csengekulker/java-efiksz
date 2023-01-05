@@ -6,6 +6,38 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Grid",
+            "request": "launch",
+            "vmArgs": "--module-path /home/csengebalogh/Library/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "Grid",
+            "projectName": "java-efiksz_3b009e37"
+        },
+        {
+            "type": "java",
+            "name": "Launch Fidull",
+            "request": "launch",
+            "vmArgs": "--module-path /home/csengebalogh/Library/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "Fidull",
+            "projectName": "java-efiksz_3b009e37"
+        },
+        {
+            "type": "java",
+            "name": "Launch Bezier",
+            "request": "launch",
+            "vmArgs": "--module-path /home/csengebalogh/Library/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "Bezier",
+            "projectName": "java-efiksz_3b009e37"
+        },
+        {
+            "type": "java",
+            "name": "Launch Lanes",
+            "request": "launch",
+            "vmArgs": "--module-path /home/csengebalogh/Library/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "Lanes",
+            "projectName": "java-efiksz_3b009e37"
+        },
+        {
+            "type": "java",
             "name": "Launch Draw",
             "request": "launch",
             "vmArgs": "--module-path /home/csengebalogh/Library/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml",

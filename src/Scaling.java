@@ -27,19 +27,15 @@ public class Scaling extends Application{
         root.getChildren().add(right);
 
         stage.setScene(scene);
-        stage = setStyle(StageStyle.TRANSPARENT);
+        // stage = setStyle(StageStyle.TRANSPARENT);
         stage.setTitle("javafx square");
         stage.show();
 
     }
 
-    private static Stage setStyle(StageStyle style) {
-        
-    }
 
     public static void main(String[] args) {
-        // launch(args);
+        launch(args);
 
-        Scaling.start(new Stage(StageStyle.TRANSPARENT));
     }
 }
